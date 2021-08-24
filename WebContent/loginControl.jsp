@@ -61,7 +61,7 @@ html, body, div, p, ul, li {
         //out.println("welcome " + email);
         //out.println("<a href='logout.jsp'>Log out</a>");
         
-        out.println("<div class='nav'><ul><li><a class='nav-link' href='contactform.jsp'>Add Contact Details</a></li><li><a class='nav-link' href='showEnrolledCourses.jsp'>Courses Available</a></li><li><a class='nav-link' href='logout.jsp'>Log out</a></li></div>");
+        out.println("<div class='nav'><ul><li><a class='nav-link' href='contactform.jsp'>Add Contact Details</a></li><li><a class='nav-link' href='showEnrolledCourses.jsp'>Courses Available</a></li><li><a class='nav-link' href='showFeedback.jsp'>Feedbacks</a></li><li><a class='nav-link' href='logout.jsp'>Log out</a></li></div>");
     } else {
         out.println("Invalid password <a href='login.jsp'>try again</a>");
     }
