@@ -45,14 +45,15 @@ body {
   <a href="#home" class="w3-button w3-bar-item">Home</a>
   <a href="registration.jsp" class="w3-button w3-bar-item">Register</a>
   <a href="login.jsp" class="w3-button w3-bar-item">LogIn</a>
-   <a href="#adminlogin.jsp" class="w3-button w3-bar-item">Admin</a>
+   <a href="Admin.jsp" class="w3-button w3-bar-item">Admin</a>
 </div>
 
 <!-- Slide Show -->
 <section>
-  <img class="mySlides" src="img1.jpg" style="width:100%">
+  <img class="mySlides" src="img1.jfif" style="width:100%">
   <img class="mySlides" src="img2.jpg" style="width:100%">
   <img class="mySlides" src="img3.jpg" style="width:100%">
+  <img class="mySlides" src="img4.jpg" style="width:100%">
 </section>
 
 <script>

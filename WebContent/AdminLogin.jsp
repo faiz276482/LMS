@@ -40,22 +40,22 @@ html, body, div, p, ul, li {
 }
 </style>
 <%
-    String email = request.getParameter("email");    
+    String email =request.getParameter("email");    
     String pwd = request.getParameter("password");
     Class.forName("com.mysql.jdbc.Driver");
     Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/LMS",
             "root", "root");
     Statement st = con.createStatement();
     ResultSet rs;
-    rs = st.executeQuery("select * from user1 where email='" + email + "' and password='" + pwd + "'");
+    rs = st.executeQuery("select * from admin where email='" + email + "' and password='" + pwd + "'");
     if (rs.next()) {
         session.setAttribute("email", email);
         //out.println("welcome " + email);
         //out.println("<a href='logout.jsp'>Log out</a>");
         
-        out.println("<h1>Welcome "+email+"</h1><div class='nav'><ul><li><a class='nav-link' href='contactform.jsp'>Add Contact Details</a></li><li><a class='nav-link' href='logout.jsp'>Log out</a></li></div>");
+        out.println("<h1>Welcome Admin "+email+"</h1><div class='nav'><li><a class='nav-link' href='showuser.jsp'>Users</a></li><li><a class='nav-link' href='showcontact.jsp'>Contact</a></li><li><a class='nav-link' href='showFeedback.jsp'>Feedback</a></li><li><a class='nav-link' href='showEnrolledCourses.jsp'>Courses</a></li><li><a class='nav-link' href='logout.jsp'>Log out</a></li></div>");
     } else {
-        out.println("Invalid password <a href='login.jsp'>try again</a>");
+        out.println("Invalid password <a href='Admin.jsp'>try again</a>");
     }
 %>
 </html>

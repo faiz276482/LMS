@@ -6,9 +6,9 @@
 <%
 String driverName = "com.mysql.jdbc.Driver";
 String connectionUrl = "jdbc:mysql://localhost:3306/";
-String dbName = "demoprj";
+String dbName = "LMS";
 String userId = "root";
-String password = "shubham";
+String password = "root";
 
 try {
 Class.forName(driverName);
@@ -45,12 +45,12 @@ while (resultSet.next()) {
 %>
 <tr bgcolor="#8FBC8F">
 
-<td><%=resultSet.getString("contactid")%></td>
-<td><%=resultSet.getString("userid")%></td>
+<td><%=resultSet.getString("contact_id")%></td>
+<td><%=resultSet.getString("user_id")%></td>
 <td><%=resultSet.getString("name")%></td>
-<td><%=resultSet.getString("email")%></td>
-<td><%=resultSet.getString("phone")%></td>
-<td><%=resultSet.getString("message")%></td>
+<td><%=resultSet.getString("Email")%></td>
+<td><%=resultSet.getString("Phone_no")%></td>
+<td><%=resultSet.getString("Messege")%></td>
 
 
 </tr>

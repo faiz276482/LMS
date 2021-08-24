@@ -6,9 +6,9 @@
 <%
 String driverName = "com.mysql.jdbc.Driver";
 String connectionUrl = "jdbc:mysql://localhost:3306/";
-String dbName = "demoprj";
+String dbName = "LMS";
 String userId = "root";
-String password = "shubham";
+String password = "root";
 
 try {
 Class.forName(driverName);
@@ -38,18 +38,18 @@ try {
 connection = DriverManager.getConnection(
 connectionUrl + dbName, userId, password);
 statement = connection.createStatement();
-String sql = "SELECT * FROM users1";
+String sql = "SELECT * FROM user1";
 
 resultSet = statement.executeQuery(sql);
 while (resultSet.next()) {
 %>
 <tr bgcolor="#8FBC8F">
 
-<td><%=resultSet.getString("userid")%></td>
+<td><%=resultSet.getString("user_id")%></td>
 <td><%=resultSet.getString("name")%></td>
 <td><%=resultSet.getString("email")%></td>
 <td><%=resultSet.getString("address")%></td>
-<td><%=resultSet.getString("phone")%></td>
+<td><%=resultSet.getString("Phone_no")%></td>
 <td><%=resultSet.getString("password")%></td>
 
 
