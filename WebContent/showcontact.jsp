@@ -2,6 +2,31 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
+<html>
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
 
 <%
 String driverName = "com.mysql.jdbc.Driver";
@@ -21,17 +46,15 @@ Statement statement = null;
 ResultSet resultSet = null;
 %>
 <h2 align="center"><font color="#FF00FF"><strong>ContactDetails</strong></font></h2>
-<table align="center" cellpadding="4" cellspacing="4">
-<tr>
+<table align="center" id="customers" cellpadding="4" cellspacing="4">
 
-</tr>
-<tr bgcolor="#008000">
-<td><b>ContactId</b></td>
-<td><b>UserID</b></td>
-<td><b>Name</b></td>
-<td><b>Email </b></td>
-<td><b>Phone</b></td>
-<td><b>Message</b></td>
+<tr>
+<th><b>ContactId</b></th>
+<th><b>UserID</b></th>
+<th><b>Name</b></th>
+<th><b>Email </b></th>
+<th><b>Phone</b></th>
+<th><b>Message</b></th>
 </tr>
 <%
 try {
@@ -43,7 +66,7 @@ String sql = "SELECT * FROM contact";
 resultSet = statement.executeQuery(sql);
 while (resultSet.next()) {
 %>
-<tr bgcolor="#8FBC8F">
+<tr>
 
 <td><%=resultSet.getString("contact_id")%></td>
 <td><%=resultSet.getString("user_id")%></td>
@@ -63,3 +86,4 @@ e.printStackTrace();
 }
 %>
 </table>
+</html>

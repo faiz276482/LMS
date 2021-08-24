@@ -12,6 +12,14 @@ html, body, div, p, ul, li {
   font-weight: 100;
 }
 
+.center-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}
+
 /* This class is applied to the containing div <div class="nav"> and is used to set the background color and height of the navbar */
 .nav {
   background: #000;
@@ -53,9 +61,11 @@ html, body, div, p, ul, li {
         //out.println("welcome " + email);
         //out.println("<a href='logout.jsp'>Log out</a>");
         
-        out.println("<h1>Welcome Admin "+email+"</h1><div class='nav'><li><a class='nav-link' href='showuser.jsp'>Users</a></li><li><a class='nav-link' href='showcontact.jsp'>Contact</a></li><li><a class='nav-link' href='showFeedback.jsp'>Feedback</a></li><li><a class='nav-link' href='showEnrolledCourses.jsp'>Courses</a></li><li><a class='nav-link' href='logout.jsp'>Log out</a></li></div>");
+        out.println("<div class='nav'><li><a class='nav-link' href='showuser.jsp'>Users</a></li><li><a class='nav-link' href='showcontact.jsp'>Contact</a></li><li><a class='nav-link' href='showFeedback.jsp'>Feedback</a></li><li><a class='nav-link' href='showEnrolledCourses.jsp'>Courses</a></li><li><a class='nav-link' href='Admin.jsp'>Log out</a></li></div>");
     } else {
         out.println("Invalid password <a href='Admin.jsp'>try again</a>");
     }
 %>
+
+<%out.println("<div align='centre' class='center-screen'><h1>Welcome "+email+"</h1></div>");%>
 </html>

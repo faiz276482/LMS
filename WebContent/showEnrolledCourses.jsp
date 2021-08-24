@@ -2,6 +2,32 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
+<html>
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+</style>
+
 
 <%
 String driverName = "com.mysql.jdbc.Driver";
@@ -21,16 +47,14 @@ Statement statement = null;
 ResultSet resultSet = null;
 %>
 <h2 align="center"><font color="#FF00FF"><strong>Course Data</strong></font></h2>
-<table align="center" cellpadding="4" cellspacing="4">
-<tr>
+<table align="center" id="customers" cellpadding="4" cellspacing="4">
 
-</tr>
 <tr bgcolor="#008000">
-<td><b>Course Name</b></td>
-<td><b>Course ID</b></td>
-<td><b>Course Resources</b></td>
-<td><b>Course Description</b></td>
-<td><b>Course Fees</b></td>
+<th><b>Course Name</b></th>
+<th><b>Course ID</b></th>
+<th><b>Course Resources</b></th>
+<th><b>Course Description</b></th>
+<th><b>Course Fees</b></th>
 </tr>
 <%
 try {
@@ -42,7 +66,7 @@ String sql = "SELECT * FROM course";
 resultSet = statement.executeQuery(sql);
 while (resultSet.next()) {
 %>
-<tr bgcolor="#8FBC8F">
+<tr>
 
 <td><%=resultSet.getString("c_name")%></td>
 <td><%=resultSet.getString("course_id")%></td>
@@ -61,3 +85,4 @@ e.printStackTrace();
 }
 %>
 </table>
+</html>
