@@ -2,6 +2,15 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
+<%
+        String admin=(String)session.getAttribute("admin");
+        
+        //redirect user to login page if not logged in
+        if(admin==null){
+         response.sendRedirect("logout.jsp");
+         }
+        
+        %>
 <html>
 <style>
 #customers {
@@ -26,7 +35,49 @@
   background-color: #04AA6D;
   color: white;
 }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
 </style>
+<body style="background-image:url('img4.jpg');background-size:cover;background-repeat:no repeat;">
+<h1 style="text-align:center;color:white;">E-Learning</h1>
+
+<!-- Navigation -->
+<div class="topnav">
+  <a  href="AdminSuccess.jsp">Home</a>
+  <a href="showuser.jsp">Show user</a>
+  <a href="showFeedback.jsp">Show feedback</a>
+  <a href="courseenrollmentform.jsp">Add Courses</a>
+  <a href="showEnrolledCourses.jsp">Courses</a>
+  <a class="active" href="showcontact.jsp">Contact Details</a>
+  <a href="deleteuser.jsp">Remove User</a>
+  <a href="logout.jsp">Log out</a>
+</div>
 
 <%
 String driverName = "com.mysql.jdbc.Driver";
@@ -45,7 +96,7 @@ Connection connection = null;
 Statement statement = null;
 ResultSet resultSet = null;
 %>
-<h2 align="center"><font color="#FF00FF"><strong>ContactDetails</strong></font></h2>
+<h2 align="center"><font color="#FFF"><strong>Contact Details</strong></font></h2>
 <table align="center" id="customers" cellpadding="4" cellspacing="4">
 
 <tr>
@@ -66,7 +117,7 @@ String sql = "SELECT * FROM contact";
 resultSet = statement.executeQuery(sql);
 while (resultSet.next()) {
 %>
-<tr>
+<tr bgcolor="#8FBC8F">
 
 <td><%=resultSet.getString("contact_id")%></td>
 <td><%=resultSet.getString("user_id")%></td>
@@ -86,4 +137,5 @@ e.printStackTrace();
 }
 %>
 </table>
+</body>
 </html>

@@ -22,7 +22,7 @@ ResultSet resultSet = null;
 try{
 connection = DriverManager.getConnection(connectionUrl+database, userid, password);
 statement=connection.createStatement();
-String sql ="select * from user1 where user_id="+id;
+String sql ="select * from user1 where userid="+id;
 resultSet = statement.executeQuery(sql);
 while(resultSet.next()){
 %>
@@ -44,7 +44,7 @@ Address:<br>
 <input type="text" name="address" value="<%=resultSet.getString("address") %>">
 <br>
 Phone:<br>
-<input type="text" name="phone" value="<%=resultSet.getInt("phone") %>">
+<input type="text" name="phone" value="<%=resultSet.getInt("Phone_no") %>">
 <br><br>
 <input type="submit" value="submit">
 </form>

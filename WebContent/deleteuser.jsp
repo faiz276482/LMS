@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
         String admin=(String)session.getAttribute("admin");
         
@@ -10,7 +12,7 @@
         %>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box;}
@@ -73,6 +75,7 @@ body {
   color: white;
 }
 </style>
+<title>Remove User</title>
 </head>
 <body style="background-image:url('img4.jpg');background-size:cover;background-repeat:no repeat;">
 <h1 style="text-align:center;color:white;">E-Learning</h1>
@@ -82,33 +85,20 @@ body {
   <a  href="AdminSuccess.jsp">Home</a>
   <a href="showuser.jsp">Show user</a>
   <a href="showFeedback.jsp">Show feedback</a>
-  <a class="active" href="courseenrollmentform.jsp">Add Courses</a>
+  <a href="courseenrollmentform.jsp">Add Courses</a>
   <a href="showEnrolledCourses.jsp">Courses</a>
   <a href="showcontact.jsp">Contact Details</a>
-  <a href="deleteuser.jsp">Remove User</a>
+  <a class="active"  href="deleteuser.jsp">Remove User</a>
   <a href="logout.jsp">Log out</a>
 </div>
-
-
-
 <div class="container">
-<h3>Course Enrollment Details Form</h3>
-  <form action="CourseEnrollmentController.jsp" method="post">
-    <label for="id">Course ID</label>
-    <input type="text" id="fname" name="id" placeholder="CourseID">
+<h3>Remove user Form</h3>
+  <form action="deletecontrol.jsp" method="post">
+  	<label for="id">User ID</label>
+    <input type="text" id="fname" name="id" placeholder="User ID o be deleted">
 
-    <label for="name">Course Name</label>
-    <input type="text" id="lname" name="name" placeholder="Your name..">
-    <label for="email">Course Resource</label>
-    <input type="text" id="lname" name="courseres" placeholder="github.com">
-    <label for="email">Course Description</label>
-    <input type="text" id="lname" name="cordesc" placeholder="Java for beginer">
-    <label for="email">Course Fee</label>
-    <input type="text" id="lname" name="corfee" placeholder="INR.4599">
-   
-    <input type="submit" value="Submit">
-  </form>
-</div>
-
+	<input type="submit" value="Delete">
+	</form>
+	</div>
 </body>
 </html>

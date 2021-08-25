@@ -47,8 +47,9 @@ html, body, div, p, ul, li {
   text-decoration: none;
 }
 </style>
+
 <%
-    String email =request.getParameter("email");    
+    String email= request.getParameter("email");    
     String pwd = request.getParameter("password");
     Class.forName("com.mysql.jdbc.Driver");
     Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/LMS",
@@ -58,14 +59,13 @@ html, body, div, p, ul, li {
     rs = st.executeQuery("select * from admin where email='" + email + "' and password='" + pwd + "'");
     if (rs.next()) {
         session.setAttribute("email", email);
+        session.setAttribute("admin",email);
         //out.println("welcome " + email);
         //out.println("<a href='logout.jsp'>Log out</a>");
         
-        out.println("<div class='nav'><li><a class='nav-link' href='showuser.jsp'>Users</a></li><li><a class='nav-link' href='showcontact.jsp'>Contact</a></li><li><a class='nav-link' href='showFeedback.jsp'>Feedback</a></li><li><a class='nav-link' href='showEnrolledCourses.jsp'>Courses</a></li><li><a class='nav-link' href='Admin.jsp'>Log out</a></li></div>");
+        out.println("<div align='centre' class='center-screen'><h1>Welcome Admin "+email+". &nbsp;<a href='AdminSuccess.jsp'>Continue</a><h1></div>");
     } else {
-        out.println("Invalid password <a href='Admin.jsp'>try again</a>");
+        out.println("<div align='centre' class='center-screen'><h1>Invalid password <a href='Adminlogin.jsp'>try again</a></h1></div>");
     }
 %>
-
-<%out.println("<div align='centre' class='center-screen'><h1>Welcome "+email+"</h1></div>");%>
 </html>

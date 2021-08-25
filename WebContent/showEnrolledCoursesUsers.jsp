@@ -3,39 +3,19 @@
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
 <%
-        String admin=(String)session.getAttribute("admin");
+        String user=(String)session.getAttribute("user");
         
         //redirect user to login page if not logged in
-        if(admin==null){
+        if(user==null){
          response.sendRedirect("logout.jsp");
          }
         
         %>
 <html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
 <style>
-#customers {
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-#customers td, #customers th {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
-#customers tr:nth-child(even){background-color: #f2f2f2;}
-
-#customers tr:hover {background-color: #ddd;}
-
-#customers th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #04AA6D;
-  color: white;
-}
-
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -64,23 +44,46 @@ body {
   background-color: #04AA6D;
   color: white;
 }
+
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
 </style>
 </head>
 <body style="background-image:url('img4.jpg');background-size:cover;background-repeat:no repeat;">
-
 <h1 style="text-align:center;color:white;">E-Learning</h1>
 
 <!-- Navigation -->
 <div class="topnav">
-  <a href="AdminSuccess.jsp">Home</a>
-  <a class="active"  href="showuser.jsp">Show user</a>
-  <a href="showFeedback.jsp">Show feedback</a>
-  <a href="courseenrollmentform.jsp">Add Courses</a>
-  <a href="showEnrolledCourses.jsp">Courses</a>
-  <a href="showcontact.jsp">Contact Details</a>
-  <a href="deleteuser.jsp">Remove User</a>
+  <a  href="success1.jsp">Home</a>
+  <!--<a href="index.jsp">Register</a>-->
+  <a class="active" href="showEnrolledCoursesUsers.jsp">Courses</a>
+  <a href="feedbackform.jsp">Feedback</a>
+  <a href="contactform.jsp">Add Contact Details</a>
   <a href="logout.jsp">Log out</a>
 </div>
+
+
+
 <%
 String driverName = "com.mysql.jdbc.Driver";
 String connectionUrl = "jdbc:mysql://localhost:3306/";
@@ -98,35 +101,33 @@ Connection connection = null;
 Statement statement = null;
 ResultSet resultSet = null;
 %>
-<h2 align="center"><font color="#FFf"><strong>UserData</strong></font></h2>
+<h2 align="center" style="text-align:center;color:white;"><strong>Course Data</strong></font></h2>
 <table align="center" id="customers" cellpadding="4" cellspacing="4">
 
-<tr bgcolor=>
-<th><b>Id</b></th>
-<th><b>Name</b></th>
-<th><b>Email</b></th>
-<th><b>Address </b></th>
-<th><b>Phone</b></th>
-<th><b>password</b></th>
+<tr">
+<th><b>Course Name</b></th>
+<th><b>Course ID</b></th>
+<th><b>Course Resources</b></th>
+<th><b>Course Description</b></th>
+<th><b>Course Fees</b></th>
 </tr>
 <%
 try {
 connection = DriverManager.getConnection(
 connectionUrl + dbName, userId, password);
 statement = connection.createStatement();
-String sql = "SELECT * FROM user1";
+String sql = "SELECT * FROM course";
 
 resultSet = statement.executeQuery(sql);
 while (resultSet.next()) {
 %>
 <tr bgcolor="#8FBC8F">
 
-<td><%=resultSet.getString("user_id")%></td>
-<td><%=resultSet.getString("name")%></td>
-<td><%=resultSet.getString("email")%></td>
-<td><%=resultSet.getString("address")%></td>
-<td><%=resultSet.getString("Phone_no")%></td>
-<td><%=resultSet.getString("password")%></td>
+<td><%=resultSet.getString("c_name")%></td>
+<td><%=resultSet.getString("course_id")%></td>
+<td><%=resultSet.getString("c_resource")%></td>
+<td><%=resultSet.getString("c_desp")%></td>
+<td><%=resultSet.getString("c_fees")%></td>
 
 
 </tr>
@@ -139,5 +140,4 @@ e.printStackTrace();
 }
 %>
 </table>
-</body>
 </html>

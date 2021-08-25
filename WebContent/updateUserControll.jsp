@@ -19,7 +19,7 @@ try
 {
 Class.forName(driverName);
 con = DriverManager.getConnection(url,user,psw);
-String sql="Update user1 set userid=?,name=?,email=?,address=?,phone=? where id="+id;
+String sql="Update user set user_id=?,name=?,email=?,address=?,Phone_no=? where user_id="+id;
 ps = con.prepareStatement(sql);
 ps.setString(1,id);
 ps.setString(2, first_name);
@@ -33,7 +33,7 @@ out.print("Record Updated Successfully");
 }
 else
 {
-out.print("There is a problem in updating Record.");
+out.print("There is a problem in updating Record.&nbsp;<a href='showuser.jsp'>Show users</a>");
 }
 }
 catch(SQLException sql)

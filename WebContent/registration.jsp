@@ -68,9 +68,47 @@ a {
   background-color: #f1f1f1;
   text-align: center;
 }
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
 </style>
 </head>
-<body>
+<body style="background-image:url('img4.jpg');background-size:cover;background-repeat:no repeat;">
+<h1 style="text-align:center;color:white;">E-Learning</h1>
+
+<!-- Navigation -->
+<div class="topnav">
+  <a href="index.jsp" class="w3-button w3-bar-item">Home</a>
+  <a class="active" href="registration.jsp" class="w3-button w3-bar-item">Register</a>
+  <a href="login.jsp" class="w3-button w3-bar-item">LogIn</a>
+   <a href="Admin.jsp" class="w3-button w3-bar-item">Admin</a>
+</div>
     <!-- Give Servlet reference to the form as an instances 
     GET and POST services can be according to the problem statement-->
     <!--<form action="./Registration" method="post">

@@ -16,8 +16,8 @@ Class.forName("com.mysql.jdbc.Driver");
 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/LMS", "root", "root");
 Statement st=conn.createStatement();
 
-int i=st.executeUpdate("insert into courses(coursename,courseid,courseresources,coursedesc,coursefee)values('"+name+"','"+id+"','"+courseResource+"','"+courseDescription+"','"+fees+"')");
-out.println("Data is successfully inserted!");
+int i=st.executeUpdate("insert into course(c_name,course_id,c_resource,c_desp,c_fees)values('"+name+"','"+id+"','"+courseResource+"','"+courseDescription+"','"+fees+"')");
+out.println("Data is successfully inserted!&nbsp;<a href='showEnrolledCourses.jsp'>Show courses</a>");
 }
 catch(Exception e)
 {

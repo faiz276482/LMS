@@ -8,9 +8,13 @@
         String email=(String)session.getAttribute("email");
         
         //redirect user to login page if not logged in
-        if(email==null){
-         response.sendRedirect("index.jsp");
+        if(email!=null){
+         response.sendRedirect("success1.jsp");
         }
+        else{
+         response.sendRedirect("logout.jsp");
+         }
+        
         %>
     
         <p>Welcome <%=email%></p>    

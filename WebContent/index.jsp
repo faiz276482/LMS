@@ -42,7 +42,7 @@ body {
 
 <!-- Navigation -->
 <div class="topnav">
-  <a href="#home" class="w3-button w3-bar-item">Home</a>
+  <a class="active"  href="#home" class="w3-button w3-bar-item">Home</a>
   <a href="registration.jsp" class="w3-button w3-bar-item">Register</a>
   <a href="login.jsp" class="w3-button w3-bar-item">LogIn</a>
    <a href="Admin.jsp" class="w3-button w3-bar-item">Admin</a>

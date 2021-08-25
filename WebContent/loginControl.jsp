@@ -58,14 +58,13 @@ html, body, div, p, ul, li {
     rs = st.executeQuery("select * from user1 where email='" + email + "' and password='" + pwd + "'");
     if (rs.next()) {
         session.setAttribute("email", email);
+        session.setAttribute("user",email);
         //out.println("welcome " + email);
         //out.println("<a href='logout.jsp'>Log out</a>");
         
-        out.println("<div class='nav'><ul><li><a class='nav-link' href='contactform.jsp'>Add Contact Details</a></li><li><a class='nav-link' href='showEnrolledCourses.jsp'>Courses Available</a></li><li><a class='nav-link' href='showFeedback.jsp'>Feedbacks</a></li><li><a class='nav-link' href='logout.jsp'>Log out</a></li></div>");
+        out.println("<div align='centre' class='center-screen'><h1>Welcome to the era of virtual learning!!<a href='success.jsp'>Continue</a></h1></div>");
     } else {
         out.println("Invalid password <a href='login.jsp'>try again</a>");
     }
 %>
-
-<%out.println("<div align='centre' class='center-screen'><h1>Welcome "+email+"</h1></div>");%>
 </html>

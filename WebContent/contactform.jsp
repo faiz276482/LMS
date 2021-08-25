@@ -1,4 +1,13 @@
 <!DOCTYPE html>
+<%
+        String user=(String)session.getAttribute("user");
+        
+        //redirect user to login page if not logged in
+        if(user==null){
+         response.sendRedirect("logout.jsp");
+         }
+        
+        %>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -65,11 +74,52 @@ a {
   background-color: #f1f1f1;
   text-align: center;
 }
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
 </style>
 </head>
 <body>
+<body style="background-image:url('img4.jpg');background-size:cover;background-repeat:no repeat;">
+<h1 style="text-align:center;color:white;">E-Learning</h1>
 
-<form action="./ContactDetailsInsert" method="post">
+<!-- Navigation -->
+<div class="topnav">
+  <a  href="success1.jsp">Home</a>
+  <!--<a href="index.jsp">Register</a>-->
+  <a href="showEnrolledCoursesUsers.jsp">Courses</a>
+  <a href="feedbackform.jsp">Feedback</a>
+  <a class="active" href="contactform.jsp">Add Contact Details</a>
+  <a href="logout.jsp">Log out</a>
+</div>
+
+<form action="./contactController.jsp" method="post">
   <div class="container">
     <h1>Contact Details</h1>
     <p>Please fill in this form to create contact details.</p>

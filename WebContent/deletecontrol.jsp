@@ -4,19 +4,14 @@ pageEncoding="ISO-8859-1"%>
 
 <%
 int id=Integer.valueOf(request.getParameter("id"));
-String name=request.getParameter("name");
-String email =request.getParameter("email");
-int userid=Integer.valueOf(request.getParameter("userid"));
-String feedback=request.getParameter("feedback");
-
 try
 {
 Class.forName("com.mysql.jdbc.Driver");
 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/LMS", "root", "root");
 Statement st=conn.createStatement();
 
-int i=st.executeUpdate("insert into feedback(f_id,name,email,user_id,feedback)values('"+id+"','"+name+"','"+email+"','"+userid+"','"+feedback+"')");
-out.println("Data is successfully inserted!");
+int i=st.executeUpdate("DELETE FROM user1 WHERE user_id="+id);
+out.println("Data is successfully Deleted!&nbsp;<a href='AdminSuccess.jsp'>Ok</a>");
 }
 catch(Exception e)
 {
