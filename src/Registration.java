@@ -34,7 +34,7 @@ HttpServletResponse response)
 			st.setString(1,null);
 
 			st.setString(2, request.getParameter("name"));
-			st.setInt(3, Integer.parseInt(request.getParameter("phone")));
+			st.setLong(3, Long.parseLong(request.getParameter("phone")));
              
 			st.setString(4, request.getParameter("email"));
 			st.setString(5, request.getParameter("address"));

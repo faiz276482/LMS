@@ -65,7 +65,7 @@ html, body, div, p, ul, li {
         
         out.println("<div align='centre' class='center-screen'><h1>Welcome Admin "+email+". &nbsp;<a href='AdminSuccess.jsp'>Continue</a><h1></div>");
     } else {
-        out.println("<div align='centre' class='center-screen'><h1>Invalid password <a href='Adminlogin.jsp'>try again</a></h1></div>");
+        out.println("<div align='centre' class='center-screen'><h1>Invalid password <a href='Admin.jsp'>try again</a></h1></div>");
     }
 %>
 </html>

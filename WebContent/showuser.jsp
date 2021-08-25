@@ -101,7 +101,7 @@ ResultSet resultSet = null;
 <h2 align="center"><font color="#FFf"><strong>UserData</strong></font></h2>
 <table align="center" id="customers" cellpadding="4" cellspacing="4">
 
-<tr bgcolor=>
+<tr>
 <th><b>Id</b></th>
 <th><b>Name</b></th>
 <th><b>Email</b></th>
